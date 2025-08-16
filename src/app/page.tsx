@@ -32,45 +32,74 @@ export default function LandingPage() {
     <main className="flex flex-col">
       {/* HERO SECTION */}
       <section
-        className="h-[600px] bg-cover bg-center flex flex-col justify-between"
+        className="min-h-[600px] md:h-[600px] bg-cover bg-center flex flex-col justify-between relative"
         style={{ backgroundImage: `url('/images/hero-bg.png')` }}
       >
         <div className="w-full">
           <Navbar />
         </div>
-        {/* Bottom area content aligned with Navbar but text constrained */}
-        <div className=" mb-20 w-full max-w-7xl mx-auto">
+
+        {/* Bottom area content */}
+        <div className="mb-8 md:mb-20 w-full px-5 max-w-7xl mx-auto">
           <div className="max-w-xl">
-            <div className="flex mb-4">
-              <div className="flex-1">
-                <h1 className="text-7xl font-bold text-white">CREATING</h1>
+            {/* Mobile Layout */}
+            <div className="block md:hidden text-center">
+              <h1 className="text-4xl sm:text-5xl font-bold text-white mb-2">
+                CREATING
+              </h1>
+              <div className="flex justify-center items-center space-x-8 mb-6">
+                <h2 className="text-2xl sm:text-3xl text-white">Ways</h2>
+                <h2 className="text-2xl sm:text-3xl text-white">Pure</h2>
               </div>
-              <div className="flex-1 pl-4">
-                <h2 className="text-4xl text-white">Ways</h2>
-                <h2 className="text-4xl text-white">Pure</h2>
+              <div className="mb-6 px-4">
+                <p className="text-white text-sm leading-relaxed">
+                  A platform where artists showcase, sell, and publish their
+                  work and buyers discover original pieces they'll love
+                </p>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4">
+                <button className="w-full sm:w-auto bg-white text-black px-6 py-3 rounded-full font-medium hover:bg-gray-200 transition">
+                  Start Selling
+                </button>
+                <button className="w-full sm:w-auto border border-white text-white px-6 py-3 rounded-full font-medium hover:bg-white hover:text-black transition">
+                  Explore Market
+                </button>
               </div>
             </div>
-            <div className="mb-4">
-              <p className="text-white text-sm">
-                Browse curated collections of classical and contemporary artwork
-                from renowned and emerging artists. Explore, admire, and own a
-                piece of timeless creativity.
-              </p>
-            </div>
-            <div className="flex space-x-4">
-              <button className="bg-white text-black px-5 py-2 rounded-full font-medium hover:bg-gray-200 transition">
-                Explore Gallery
-              </button>
-              <button className="border border-white text-white px-5 py-2 rounded-full font-medium hover:bg-white hover:text-black transition">
-                Get Started
-              </button>
+
+            {/* Desktop Layout */}
+            <div className="hidden md:block">
+              <div className="flex mb-4">
+                <div className="flex-1">
+                  <h1 className="text-7xl font-bold text-white">CREATING</h1>
+                </div>
+                <div className="flex-1 pl-4">
+                  <h2 className="text-4xl text-white">Ways</h2>
+                  <h2 className="text-4xl text-white">Pure</h2>
+                </div>
+              </div>
+              <div className="mb-4">
+                <p className="text-white text-sm">
+                  Browse curated collections of classical and contemporary
+                  artwork from renowned and emerging artists. Explore, admire,
+                  and own a piece of timeless creativity.
+                </p>
+              </div>
+              <div className="flex space-x-4">
+                <button className="bg-white text-black px-5 py-2 rounded-full font-medium hover:bg-gray-200 transition">
+                  Explore Gallery
+                </button>
+                <button className="border border-white text-white px-5 py-2 rounded-full font-medium hover:bg-white hover:text-black transition">
+                  Get Started
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* WORK SECTION */}
-      <section className="h-[600px] w-full flex flex-col bg-offwhite text-black">
+      <section className="h-[600px] w-full px-5 flex flex-col bg-offwhite text-black">
         {/* Heading row */}
         <div className="flex justify-between items-center py-6 h-2/5 max-w-7xl mx-auto w-full">
           <h2 className="text-7xl font-bold">Our Work</h2>
@@ -134,9 +163,9 @@ export default function LandingPage() {
           </div>
 
           {/* Row 2 */}
-          <div className="w-[97%] h-72 sm:h-72 md:h-96 relative overflow-hidden shadow-md">
+          <div className="w-[97%] h-72 sm:h-72 md:h-96 m-auto relative overflow-hidden shadow-md">
             <Image
-              src="/landing/arsbg.svg"
+              src="/landing/arsbg.png"
               alt="ARS Banner"
               layout="fill"
               objectFit="cover"
@@ -144,8 +173,8 @@ export default function LandingPage() {
           </div>
 
           {/* Row 3 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="h-60 sm:h-72 md:h-96 relative overflow-hidden">
+          <div className="grid grid-cols-1 md:grid-cols-2 mt-10 gap-6 max-w-5xl mx-auto">
+            <div className="h-96 md:h-[400px] relative rounded-2xl overflow-hidden">
               <Image
                 src="/landing/artist.png"
                 alt="ARS D1"
@@ -189,7 +218,7 @@ export default function LandingPage() {
           </div>
 
           {/* Row 4 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             <div className="flex flex-col justify-center p-5 sm:p-6 bg-gray-50 rounded-xl">
               <h3
                 className="text-xl sm:text-2xl md:text-3xl font-bold text-black mb-2"
@@ -221,7 +250,9 @@ export default function LandingPage() {
                 </button>
               </Link>
             </div>
-            <div className="h-60 sm:h-72 md:h-96 relative overflow-hidden">
+
+            {/* Image block with taller + narrower aspect */}
+            <div className="h-96 md:h-[400px] relative rounded-2xl overflow-hidden">
               <Image
                 src="/landing/buyers.png"
                 alt="ARS D4"
