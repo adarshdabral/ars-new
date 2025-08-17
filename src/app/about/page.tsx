@@ -67,7 +67,7 @@ export default function About() {
   return (
     <main>
       <div
-        className="relative w-full h-[600px] overflow-hidden bg-cover bg-no-repeat bg-bottom"
+        className="relative w-full h-[600px] overflow-hidden bg-cover bg-no-repeat bg-center"
         style={{ backgroundImage: "url('/landing/arsbg.png')" }}
       >
         <Navbar />
