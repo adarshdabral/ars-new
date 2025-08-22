@@ -1,10 +1,25 @@
-'use client';
+"use client";
 
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+
+const TABS = [
+  { name: 'Work', path: '/work' },
+  { name: 'Mood Board', path: '/moodboard' },
+  { name: 'Your Stats', path: '/your-stats' },
+  { name: 'Drafts', path: '/draft' }
+];
 
 export default function UserStats() {
   const [selectedProject, setSelectedProject] = useState('All Projects');
+  const [activeTab, setActiveTab] = useState('Your Stats');
+  const router = useRouter();
+
+  const handleTabClick = (tab) => {
+    setActiveTab(tab.name);
+    router.push(tab.path);
+  };
 
   return (
     <div className="flex flex-col lg:flex-row max-w-7xl mx-auto mt-6 px-4">
@@ -48,10 +63,17 @@ export default function UserStats() {
         {/* Header Tabs */}
         <div className="border-b text-sm mb-6">
           <nav className="flex space-x-8">
-            <button className="pb-2">Work</button>
-            <button className="pb-2">Mood board</button>
-            <button className="pb-2 border-b-2 border-black font-semibold">Your Stats</button>
-            <button className="pb-2">Drafts</button>
+            {TABS.map((tab) => (
+              <button
+                key={tab.name}
+                onClick={() => handleTabClick(tab)}
+                className={`pb-2 ${
+                  activeTab === tab.name ? 'border-b-2 border-black font-semibold' : ''
+                }`}
+              >
+                {tab.name}
+              </button>
+            ))}
           </nav>
         </div>
 

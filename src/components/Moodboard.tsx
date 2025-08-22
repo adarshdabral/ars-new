@@ -1,15 +1,22 @@
 "use client";
 import React, { useState } from "react";
+import { useRouter } from 'next/navigation';
 
 const TABS = [
-  { name: "Work" },
-  { name: "Mood board" },
-  { name: "Your Stats" },
-  { name: "Drafts" },
+  { name: 'Work', path: '/work' },
+  { name: 'Mood Board', path: '/moodboard' },
+  { name: 'Your Stats', path: '/stats' },
+  { name: 'Drafts', path: '/draft' }
 ];
 
 const Moodboard: React.FC = () => {
-  const [selectedTab, setSelectedTab] = useState("Mood board");
+  const [selectedTab, setSelectedTab] = useState("Mood Board");
+  const router = useRouter();
+
+  const handleTabClick = (tab) => {
+    setSelectedTab(tab.name);
+    router.push(tab.path);
+  };
 
   return (
     <div className="bg-white min-h-screen font-sans mb-16">
@@ -78,12 +85,12 @@ const Moodboard: React.FC = () => {
             {TABS.map((tab) => (
               <button
                 key={tab.name}
-                className={`px-1 pb-2 font-semibold text-base border-b-2
-                  ${selectedTab === tab.name
+                className={`px-1 pb-2 font-semibold text-base border-b-2 ${
+                  selectedTab === tab.name
                     ? "border-[#13007D] text-[#13007D]"
                     : "border-transparent text-gray-600"
-                  }`}
-                onClick={() => setSelectedTab(tab.name)}
+                }`}
+                onClick={() => handleTabClick(tab)}
               >
                 {tab.name}
               </button>

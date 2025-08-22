@@ -1,8 +1,25 @@
-'use client';
+"use client";
 
 import { Plus } from 'lucide-react';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+
+const TABS = [
+  { name: 'Work', path: '/work' },
+  { name: 'Mood Board', path: '/moodboard' },
+  { name: 'Your Stats', path: '/stats' },
+  { name: 'Drafts', path: '/draft' }
+];
 
 export default function Draft() {
+  const [activeTab, setActiveTab] = useState('Drafts');
+  const router = useRouter();
+
+  const handleTabClick = (tab) => {
+    setActiveTab(tab.name);
+    router.push(tab.path);
+  };
+
   return (
     <div className="flex flex-col lg:flex-row max-w-7xl mx-auto mt-6 px-4">
       {/* Sidebar */}
@@ -45,10 +62,17 @@ export default function Draft() {
         {/* Tabs */}
         <div className="border-b text-sm mb-6">
           <nav className="flex space-x-8">
-            <button className="pb-2">Work</button>
-            <button className="pb-2">Mood board</button>
-            <button className="pb-2">Your Stats</button>
-            <button className="pb-2 border-b-2 border-black font-semibold">Drafts</button>
+            {TABS.map((tab) => (
+              <button
+                key={tab.name}
+                onClick={() => handleTabClick(tab)}
+                className={`pb-2 ${
+                  activeTab === tab.name ? 'border-b-2 border-black font-semibold' : ''
+                }`}
+              >
+                {tab.name}
+              </button>
+            ))}
           </nav>
         </div>
 
