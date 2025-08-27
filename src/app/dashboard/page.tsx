@@ -124,10 +124,11 @@ export default function ArtistDashboard() {
                 Member since: 2024-07-20
               </p>
             </div>
-
-            <button className="w-full text-sm text-white font-semibold bg-[#13007D] rounded px-3 py-2">
-              Edit Profile
-            </button>
+            <Link href="dashboard/edit">
+              <button className="w-full text-sm text-white font-semibold bg-[#13007D] rounded px-3 py-2">
+                Edit Profile
+              </button>
+            </Link>
 
             <div>
               <h3 className="text-sm font-medium text-gray-700 mb-1">
