@@ -7,10 +7,10 @@ export default function Navbar() {
   return (
     <nav className="w-full">
       {/* Desktop Navbar */}
-      <div className="hidden md:flex max-w-7xl mx-auto z-50 bg-transparent py-5 px-5 items-center justify-between">
+      <div className="hidden md:flex max-w-[1800px] mx-auto z-50 bg-transparent py-5 px-5 items-center justify-between">
         {/* Left links */}
-        <div className="flex space-x-6 text-sm font-medium">
-          <Link href="/gallery">Art Gallery</Link>
+        <div className="flex space-x-6 text-sm font-bold">
+          <Link href="/artGallery">Art Gallery</Link>
           <Link href="/artists">Artists</Link>
           <Link href="/shop">Shop</Link>
           <Link href="/about">About Us</Link>
@@ -60,7 +60,7 @@ export default function Navbar() {
         {/* Bottom row (nav links) */}
         <div className="bg-[#0A0075] text-white text-center text-sm font-medium">
           <div className="flex justify-center space-x-8 py-3">
-            <Link href="/gallery">Art Gallery</Link>
+            <Link href="/artGallery">Art Gallery</Link>
             <Link href="/artists">Artists</Link>
             <Link href="/shop">Shop</Link>
             <Link href="/about">About Us</Link>

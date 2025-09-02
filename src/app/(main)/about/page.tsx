@@ -66,13 +66,12 @@ export default function About() {
   ];
   return (
     <main>
+      <Navbar />
       <div
         className="relative w-full h-[600px] overflow-hidden bg-cover bg-no-repeat bg-center"
         style={{ backgroundImage: "url('/landing/arsbg.png')" }}
-      >
-        <Navbar />
-      </div>
-      <div className="max-w-7xl mx-auto px-4 py-12">
+      ></div>
+      <div className="max-w-[1800px] mx-auto px-4 py-12">
         {/* Intro Section */}
         <p className="text-lg mb-4">
           <span className="font-bold">ARS The Art Gallery</span> is a

@@ -1,9 +1,5 @@
-"use client";
-
 import Image from "next/image";
-
-import Navbar from "./Navbar";
-
+import Navbar from "@/components/Navbar";
 const galleryImages = [
   {
     src: "/dummyArts/0115c75c5487ecb7f38153afaff633d5.jpg",
@@ -67,37 +63,37 @@ const galleryImages = [
   },
 ];
 
-const ArtGallery = () => {
+export default function ArtPage() {
   return (
-    <section className="w-full">
+    <>
       <Navbar />
-      {/* Gallery Heading */}
-      <div className="text-center py-16">
-        <h1 className="text-5xl font-serif font-bold tracking-wide">
-          ART GALLERY
-        </h1>
-      </div>
-
-      {/* Masonry Image Grid */}
-      <div className="my-12 px-3 max-w-7xl mx-auto">
-        <div className="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
-          {galleryImages.map((img, idx) => (
-            <div className="break-inside-avoid mb-6" key={img.src + idx}>
-              <div className="rounded-3xl overflow-hidden shadow-lg transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-xl relative group">
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  width={400}
-                  height={500}
-                  className="w-full h-auto transition-transform duration-400 group-hover:scale-105"
-                />
-              </div>
-            </div>
-          ))}
+      <section className="max-w-[1800px] mx-auto min-h-screen">
+        {/* Gallery Heading */}
+        <div className="text-center py-16">
+          <h1 className="text-5xl font-serif font-bold tracking-wide">
+            ART GALLERY
+          </h1>
         </div>
-      </div>
-    </section>
-  );
-};
 
-export default ArtGallery;
+        {/* Masonry Image Grid */}
+        <div className="my-12 px-3">
+          <div className="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
+            {galleryImages.map((img, idx) => (
+              <div className="break-inside-avoid mb-6" key={img.src + idx}>
+                <div className="rounded-3xl overflow-hidden shadow-lg transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-xl relative group">
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    width={400}
+                    height={500}
+                    className="w-full h-auto transition-transform duration-400 group-hover:scale-105"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}

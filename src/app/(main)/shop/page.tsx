@@ -56,7 +56,7 @@ export default function ShopPage() {
   return (
     <>
       <ShopHero />
-      <section className="min-h-screen bg-gray-50">
+      <section className="min-h-screen max-w-[1800px] mx-auto bg-gray-50">
         {/* Mobile: Filters on top, Desktop: Sidebar on left */}
         <div className="flex flex-col lg:flex-row">
           {/* Filter Sidebar */}

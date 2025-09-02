@@ -40,7 +40,7 @@ export default function LandingPage() {
         </div>
 
         {/* Bottom area content */}
-        <div className="mb-8 md:mb-20 w-full px-5 max-w-7xl mx-auto">
+        <div className="mb-8 md:mb-20 w-full px-5 max-w-[1800px] mx-auto">
           <div className="max-w-xl">
             {/* Mobile Layout */}
             <div className="block md:hidden text-center">
@@ -101,7 +101,7 @@ export default function LandingPage() {
       {/* WORK SECTION */}
       <section className="h-[600px] w-full px-5 flex flex-col bg-offwhite text-black">
         {/* Heading row */}
-        <div className="flex justify-between items-center py-6 h-2/5 max-w-7xl mx-auto w-full">
+        <div className="flex justify-between items-center py-6 h-2/5 max-w-[1800px] mx-auto w-full">
           <h2 className="text-7xl font-bold">Our Work</h2>
           <Link href="/work">
             <button className="text-sm border border-black px-4 py-1 rounded-full hover:bg-black hover:text-white transition">
@@ -110,14 +110,14 @@ export default function LandingPage() {
           </Link>
         </div>
 
-        {/* Carousel container limited to max-w-7xl */}
+        {/* Carousel container limited to max-w-[1800px] */}
         <div
           ref={scrollRef}
           onMouseDown={handleMouseDown}
           onMouseLeave={handleMouseLeave}
           onMouseUp={handleMouseUp}
           onMouseMove={handleMouseMove}
-          className="h-3/5 overflow-x-auto snap-x snap-mandatory scroll-smooth cursor-grab max-w-7xl mx-auto w-full"
+          className="h-3/5 overflow-x-auto snap-x snap-mandatory scroll-smooth cursor-grab max-w-[1800px] mx-auto w-full"
           style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch" }}
         >
           <div className="flex space-x-6 h-full items-center px-8 w-fit">
@@ -139,7 +139,7 @@ export default function LandingPage() {
 
       {/* ABOUT SECTION */}
       <section className="w-full py-8 sm:py-10 md:py-12">
-        <div className="max-w-7xl mx-auto w-full space-y-10">
+        <div className="max-w-[1800px] mx-auto w-full space-y-10">
           {/* Row 1 */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="flex items-center">
@@ -173,7 +173,7 @@ export default function LandingPage() {
           </div>
 
           {/* Row 3 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 mt-10 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 mt-10 gap-6 max-w-[1400px] mx-auto">
             <div className="h-96 md:h-[400px] relative rounded-2xl overflow-hidden">
               <Image
                 src="/landing/artist.png"
@@ -218,7 +218,7 @@ export default function LandingPage() {
           </div>
 
           {/* Row 4 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[] mx-auto">
             <div className="flex flex-col justify-center p-5 sm:p-6 bg-gray-50 rounded-xl">
               <h3
                 className="text-xl sm:text-2xl md:text-3xl font-bold text-black mb-2"

@@ -14,7 +14,7 @@ export default function ArtistsPage() {
   return (
     <>
       <Navbar />
-      <section className="w-full max-w-screen-xl mx-auto px-6 py-16 bg-gray-50 min-h-screen">
+      <section className="w-full max-w-[1800px] mx-auto px-6 py-16 bg-gray-50 min-h-screen">
         <h2 className="text-4xl font-serif font-bold text-center mb-12 text-gray-800">
           Our Artists
         </h2>
