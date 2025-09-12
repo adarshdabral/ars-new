@@ -9,7 +9,7 @@ export default function Navbar() {
       {/* Desktop Navbar */}
       <div className="hidden md:flex max-w-[1800px] mx-auto z-50 bg-transparent py-5 px-5 items-center justify-between">
         {/* Left links */}
-        <div className="flex space-x-6 text-sm font-bold">
+        <div className="flex space-x-6 text-sm font-medium">
           <Link href="/artGallery">Art Gallery</Link>
           <Link href="/artists">Artists</Link>
           <Link href="/shop">Shop</Link>
