@@ -80,7 +80,7 @@ export default function ArtworkCarousel() {
       <Navbar />
       <div
         className="relative w-full h-[600px] overflow-hidden bg-cover bg-no-repeat bg-bottom"
-        style={{ backgroundImage: "url('/shop/shophero.png')" }}
+        style={{ backgroundImage: "url('/shop/shophero.jpeg')" }}
       >
         {/* Artwork Display - Moved down with pt-32 instead of pt-20 */}
         <div className="absolute inset-x-0 top-0 flex flex-col items-center pt-32">
@@ -146,10 +146,10 @@ export default function ArtworkCarousel() {
             {/* Artwork Information Fixed Below Center */}
             <div className="flex justify-center">
               <div className="w-48 text-left">
-                <h2 className="text-2xl font-serif mb-2 text-white">
+                <h2 className="text-2xl font-serif mb-2 ">
                   {artworks[currentIndex].title}
                 </h2>
-                <p className="text-sm leading-4 mb-4 text-white/90">
+                <p className="text-sm leading-4 mb-4 ">
                   {artworks[currentIndex].description}
                 </p>
                 <button className="px-6 py-1 text-sm bg-white font-medium rounded-full shadow-lg hover:bg-amber-50 hover:shadow-xl transition-all duration-200 transform hover:scale-105">
