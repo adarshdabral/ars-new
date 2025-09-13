@@ -1,19 +1,26 @@
 "use client";
 
-import { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+import { useState } from "react";
+import { ChevronDown, Eye, Image, User, DollarSign } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const TABS = [
-  { name: 'Work', path: '/work' },
-  { name: 'Mood Board', path: '/moodboard' },
-  { name: 'Your Stats', path: '/your-stats' },
-  { name: 'Drafts', path: '/draft' }
+  { name: "Work", path: "/work" },
+  { name: "Mood Board", path: "/moodboard" },
+  { name: "Your Stats", path: "/your-stats" },
+  { name: "Drafts", path: "/draft" },
+];
+
+const STAT_CARDS = [
+  { value: "120", label: "Project Views", icon: Eye, color: "from-blue-500 to-indigo-500" },
+  { value: "40", label: "Artworks Sold", icon: Image, color: "from-green-400 to-emerald-500" },
+  { value: "250", label: "Profile Views", icon: User, color: "from-purple-500 to-fuchsia-500" },
+  { value: "10k", label: "Total Earnings", icon: DollarSign, color: "from-yellow-400 to-orange-500" },
 ];
 
 export default function UserStats() {
-  const [selectedProject, setSelectedProject] = useState('All Projects');
-  const [activeTab, setActiveTab] = useState('Your Stats');
+  const [selectedProject, setSelectedProject] = useState("All Projects");
+  const [activeTab, setActiveTab] = useState("Your Stats");
   const router = useRouter();
 
   const handleTabClick = (tab) => {
@@ -36,10 +43,18 @@ export default function UserStats() {
         </div>
 
         <div className="mt-6 space-y-2 text-sm text-gray-700">
-          <p>Project Views <span className="float-right font-semibold">120</span></p>
-          <p>Artwork Sold <span className="float-right font-semibold">40</span></p>
-          <p>Following <span className="float-right font-semibold">250</span></p>
-          <p>Followers <span className="float-right font-semibold">400</span></p>
+          <p>
+            Project Views <span className="float-right font-semibold">120</span>
+          </p>
+          <p>
+            Artwork Sold <span className="float-right font-semibold">40</span>
+          </p>
+          <p>
+            Following <span className="float-right font-semibold">250</span>
+          </p>
+          <p>
+            Followers <span className="float-right font-semibold">400</span>
+          </p>
         </div>
 
         <div className="mt-6">
@@ -68,7 +83,9 @@ export default function UserStats() {
                 key={tab.name}
                 onClick={() => handleTabClick(tab)}
                 className={`pb-2 ${
-                  activeTab === tab.name ? 'border-b-2 border-black font-semibold' : ''
+                  activeTab === tab.name
+                    ? "border-b-2 border-black font-semibold"
+                    : "text-gray-500 hover:text-black"
                 }`}
               >
                 {tab.name}
@@ -78,7 +95,7 @@ export default function UserStats() {
         </div>
 
         {/* Filter Dropdown */}
-        <div className="flex justify-end mb-4">
+        <div className="flex justify-end mb-6">
           <div className="relative inline-block">
             <select
               value={selectedProject}
@@ -94,23 +111,28 @@ export default function UserStats() {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
-          <div>
-            <p className="text-2xl font-bold">120</p>
-            <p className="text-sm text-gray-600">Project Views</p>
-          </div>
-          <div>
-            <p className="text-2xl font-bold">40</p>
-            <p className="text-sm text-gray-600">Artworks Sold</p>
-          </div>
-          <div>
-            <p className="text-2xl font-bold">250</p>
-            <p className="text-sm text-gray-600">Profile Views</p>
-          </div>
-          <div>
-            <p className="text-2xl font-bold">10k</p>
-            <p className="text-sm text-gray-600">Total Earnings</p>
-          </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {STAT_CARDS.map((stat) => {
+            const Icon = stat.icon;
+            return (
+              <div
+                key={stat.label}
+                className="relative overflow-hidden rounded-2xl bg-gradient-to-br shadow-md hover:shadow-xl transition-transform transform hover:-translate-y-1"
+              >
+                {/* Gradient Header with Icon */}
+                <div
+                  className={`h-20 bg-gradient-to-r ${stat.color} flex items-center justify-center`}
+                >
+                  <Icon className="w-8 h-8 text-white" />
+                </div>
+                {/* Card Content */}
+                <div className="bg-white p-6 text-center">
+                  <p className="text-3xl font-extrabold text-gray-800">{stat.value}</p>
+                  <p className="text-sm text-gray-500 mt-2">{stat.label}</p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

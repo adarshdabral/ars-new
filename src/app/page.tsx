@@ -71,11 +71,11 @@ export default function LandingPage() {
             <div className="hidden md:block">
               <div className="flex mb-4">
                 <div className="flex-1">
-                  <h1 className="text-7xl font-bold text-white">CREATING</h1>
+                  <h1 className="text-7xl font-bold text-white">Elevating Artists</h1>
                 </div>
                 <div className="flex-1 pl-4">
-                  <h2 className="text-4xl text-white">Ways</h2>
-                  <h2 className="text-4xl text-white">Pure</h2>
+                  {/* <h2 className="text-4xl text-white">Ways</h2>
+                  <h2 className="text-4xl text-white">Pure</h2> */}
                 </div>
               </div>
               <div className="mb-4">
@@ -84,6 +84,7 @@ export default function LandingPage() {
                   artwork from renowned and emerging artists. Explore, admire,
                   and own a piece of timeless creativity.
                 </p>
+                <br /><br />
               </div>
               <div className="flex space-x-4">
                 <button className="bg-white text-black px-5 py-2 rounded-full font-medium hover:bg-gray-200 transition">
@@ -99,48 +100,50 @@ export default function LandingPage() {
       </section>
 
       {/* WORK SECTION */}
-      <section className="h-[600px] w-full px-5 flex flex-col bg-offwhite text-black">
-        {/* Heading row */}
-        <div className="flex justify-between items-center py-6 h-2/5 max-w-[1800px] mx-auto w-full">
-          <h2 className="text-7xl font-bold">Our Work</h2>
-          <Link href="/work">
-            <button className="text-sm border border-black px-4 py-1 rounded-full hover:bg-black hover:text-white transition">
-              View More →
-            </button>
-          </Link>
-        </div>
+<section className="w-full px-5 py-10 bg-offwhite text-black">
+  {/* Heading row */}
+  <div className="flex justify-between items-center pb-6 max-w-[1800px] mx-auto">
+    <h2 className="text-5xl md:text-7xl font-bold">Our Work</h2>
+    <Link href="/work">
+      <button className="text-sm border border-black px-4 py-1 rounded-full hover:bg-black hover:text-white transition">
+        View More →
+      </button>
+    </Link>
+  </div>
 
-        {/* Carousel container limited to max-w-[1800px] */}
-        <div
-          ref={scrollRef}
-          onMouseDown={handleMouseDown}
-          onMouseLeave={handleMouseLeave}
-          onMouseUp={handleMouseUp}
-          onMouseMove={handleMouseMove}
-          className="h-3/5 overflow-x-auto snap-x snap-mandatory scroll-smooth cursor-grab max-w-[1800px] mx-auto w-full"
-          style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch" }}
-        >
-          <div className="flex space-x-6 h-full items-center px-8 w-fit">
-            {[...Array(13)].map((_, i) => (
-              <div
-                key={i}
-                className="min-w-[250px] h-[350px] bg-black/10 border border-white/20 rounded-lg overflow-hidden snap-start"
-              >
-                <img
-                  src={`/images/portrait${i + 1}.png`}
-                  alt={`Portrait ${i + 1}`}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            ))}
-          </div>
+  {/* CAROUSELS WRAPPER */}
+  <div className="space-y-10">
+    {[1, 2].map((carouselIndex) => (
+      <div
+        key={carouselIndex}
+        className="overflow-x-auto snap-x snap-mandatory scroll-smooth cursor-grab max-w-[1800px] mx-auto"
+        style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch" }}
+      >
+        <div className="flex gap-6 px-4 w-fit">
+          {[...Array(10)].map((_, i) => (
+            <div
+              key={i}
+              className="flex-shrink-0 snap-start basis-1/5 min-w-[200px] max-w-[280px] aspect-[4/5] bg-black/10 border border-white/20 rounded-lg overflow-hidden"
+            >
+              <img
+                src={`/images/portrait${i + 1}.png`}
+                alt={`Portrait ${i + 1}`}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ))}
         </div>
-      </section>
+      </div>
+    ))}
+  </div>
+</section>
+
+      <br /><br />
 
       {/* ABOUT SECTION */}
-      <section className="w-full py-8 sm:py-10 md:py-12">
+      {/* <section className="w-full py-8 sm:py-10 md:py-12">
         <div className="max-w-[1800px] mx-auto w-full space-y-10">
-          {/* Row 1 */}
+         
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="flex items-center">
               <h2
@@ -162,7 +165,7 @@ export default function LandingPage() {
             </div>
           </div>
 
-          {/* Row 2 */}
+          
           <div className="w-[97%] h-72 sm:h-72 md:h-96 m-auto relative overflow-hidden shadow-md">
             <Image
               src="/landing/arsbg.png"
@@ -172,7 +175,6 @@ export default function LandingPage() {
             />
           </div>
 
-          {/* Row 3 */}
           <div className="grid grid-cols-1 md:grid-cols-2 mt-10 gap-6 max-w-[1400px] mx-auto">
             <div className="h-96 md:h-[400px] relative rounded-2xl overflow-hidden">
               <Image
@@ -217,7 +219,7 @@ export default function LandingPage() {
             </div>
           </div>
 
-          {/* Row 4 */}
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[] mx-auto">
             <div className="flex flex-col justify-center p-5 sm:p-6 bg-gray-50 rounded-xl">
               <h3
@@ -251,7 +253,7 @@ export default function LandingPage() {
               </Link>
             </div>
 
-            {/* Image block with taller + narrower aspect */}
+
             <div className="h-96 md:h-[400px] relative rounded-2xl overflow-hidden">
               <Image
                 src="/landing/buyers.png"
@@ -262,7 +264,7 @@ export default function LandingPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <style jsx global>{`
         .cursor-grab:active {
